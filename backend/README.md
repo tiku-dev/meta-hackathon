@@ -1,3 +1,5 @@
+# live demo https://meta-hackathon-frontend-seven.vercel.app/
+
 # University School Management System - Backend
 
 Django REST Framework API implementing
@@ -16,19 +18,19 @@ py -3.14 -m pytest                            # acceptance tests (blueprint SS11
 ```
 
 - API base: `http://127.0.0.1:8000/api/`
-- Swagger UI: `http://127.0.0.1:8000/api/docs/`  | ReDoc: `/api/redoc/`
+- Swagger UI: `http://127.0.0.1:8000/api/docs/` | ReDoc: `/api/redoc/`
 - Django admin: `http://127.0.0.1:8000/admin/` (create a superuser first)
 
 ## Demo accounts (seeded, password `DemoPass123!`)
 
-| Email | Role |
-|---|---|
-| admin@demo.edu | admin |
-| finance@demo.edu | finance |
-| registrar@demo.edu | registrar |
-| hod@demo.edu | HOD (Computer Science) |
-| lecturer@demo.edu | lecturer |
-| student@demo.edu | student (unpaid invoice) |
+| Email              | Role                     |
+| ------------------ | ------------------------ |
+| admin@demo.edu     | admin                    |
+| finance@demo.edu   | finance                  |
+| registrar@demo.edu | registrar                |
+| hod@demo.edu       | HOD (Computer Science)   |
+| lecturer@demo.edu  | lecturer                 |
+| student@demo.edu   | student (unpaid invoice) |
 
 JWT login: `POST /api/auth/token/` — **students** send their matricule
 (`{"username": "UB26-...", "password": ...}` or `{"matricule": ...}`);
@@ -54,14 +56,14 @@ their matricule.
 
 ## Apps
 
-| App | Responsibility |
-|---|---|
-| `core` | Audit log (append-only), error codes, role permissions, reports |
-| `accounts` | Users/roles, student & lecturer profiles, matricules, activation tokens (SHA-256 hashed) |
-| `academics` | Units/programs/levels/years/semesters, courses, offerings, atomic registration, timetable, attendance, exemptions |
-| `finance` | Fee schedules, invoices, payments, receipts, `PaymentProvider` (mock / Notch Pay / Stripe-disabled), idempotent webhooks |
-| `results` | Grading policies/bands, CA/final workflow draft -> submitted -> HOD-approved -> published/locked, corrections, GPA, transcript PDFs |
-| `communication` | Announcements (audience-filtered), notifications, events + RSVP, deadline alerts |
+| App             | Responsibility                                                                                                                      |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `core`          | Audit log (append-only), error codes, role permissions, reports                                                                     |
+| `accounts`      | Users/roles, student & lecturer profiles, matricules, activation tokens (SHA-256 hashed)                                            |
+| `academics`     | Units/programs/levels/years/semesters, courses, offerings, atomic registration, timetable, attendance, exemptions                   |
+| `finance`       | Fee schedules, invoices, payments, receipts, `PaymentProvider` (mock / Notch Pay / Stripe-disabled), idempotent webhooks            |
+| `results`       | Grading policies/bands, CA/final workflow draft -> submitted -> HOD-approved -> published/locked, corrections, GPA, transcript PDFs |
+| `communication` | Announcements (audience-filtered), notifications, events + RSVP, deadline alerts                                                    |
 
 ## Key endpoints (SS8)
 
@@ -120,7 +122,7 @@ grandfathered (record `not_required`). Finance may waive it via
 - Webhooks are deduplicated on `(provider, event_id)`; reconciling an
   already-succeeded attempt is a no-op (no double credit, one receipt).
 - **Sandbox (current local setup):** `backend/.env` (never committed - see
-  root `.gitignore`) holds the real *test* keys:
+  root `.gitignore`) holds the real _test_ keys:
   `PAYMENT_PROVIDER=notchpay`, `PAYMENT_ALLOW_MOCK=0`, `pk_test/sk_test`
   Stripe keys and `pk_test./sk_test./hsk_test.` Notch Pay keys. Verify with
   `py -3.14 verify_sandbox.py` (auth-only, creates nothing).

@@ -1,4 +1,8 @@
+# live demo https://meta-hackathon-frontend-seven.vercel.app/
+
 # University School Management System - FULL APP
+
+# live demo https://meta-hackathon-frontend-seven.vercel.app/
 
 # BACKEND
 

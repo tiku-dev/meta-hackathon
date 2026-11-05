@@ -1,3 +1,5 @@
+# live demo https://meta-hackathon-frontend-seven.vercel.app/
+
 # University Portal — School Management System (Frontend)
 
 React 19 + Vite + Tailwind CSS v4 frontend for the Django REST backend in
@@ -55,10 +57,10 @@ CORS setup is needed in development. Demo accounts (password `DemoPass123!`):
 
 ## Configuration (env)
 
-| Variable | Default | Purpose |
-|---|---|---|
-| `VITE_API_BASE_URL` | `/api` (dev proxy) | Set to e.g. `https://api.example.edu/api` for a separately hosted API |
-| `VITE_UNIVERSITY_NAME` | `University Portal` | Branding shown in the shell/auth pages |
+| Variable               | Default             | Purpose                                                               |
+| ---------------------- | ------------------- | --------------------------------------------------------------------- |
+| `VITE_API_BASE_URL`    | `/api` (dev proxy)  | Set to e.g. `https://api.example.edu/api` for a separately hosted API |
+| `VITE_UNIVERSITY_NAME` | `University Portal` | Branding shown in the shell/auth pages                                |
 
 Amounts, deadlines, thresholds and grading rules all come from the API —
 nothing about a specific university is hard-coded.
